@@ -14,7 +14,6 @@ public class Matrix {
         System.out.println("Начальная матрица:");
         if (rows==columns){
             for (int i = 0; i < rows; i++) {
-
                 for (int j = 0; j < columns; j++) {
                     matrix[i][j] = random.nextInt(21)-10;
                     if ((columns - j) == 1){
@@ -27,9 +26,6 @@ public class Matrix {
 
             }
         }
-
-
-
         int diagonalProizv = 1;
         int summa = 0;
         int raznost = 0;
