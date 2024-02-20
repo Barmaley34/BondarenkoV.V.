@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Matrix {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Random random = new  Random();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите количество строк матрицы: ");
