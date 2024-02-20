@@ -16,7 +16,7 @@ public class Matrix {
             for (int i = 0; i < rows; i++) {
 
                 for (int j = 0; j < columns; j++) {
-                    matrix[i][j] = random.nextInt(201)-100;
+                    matrix[i][j] = random.nextInt(21)-10;
                     if ((columns - j) == 1){
                         System.out.println(matrix[i][j]+" ");
                     }
