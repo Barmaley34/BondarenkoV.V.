@@ -1,49 +1,55 @@
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
+public class Matrix{
 
-public class Matrix {
-    static void main(String[] args) {
-        Random random = new  Random();
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите размер матрицы: ");
-        int size = scanner.nextInt();
-        
-        int[][] matrix = new int[size][size];
-
-        System.out.println("Начальная матрица:");
+    Random random = new Random();
+    Scanner scanner = new Scanner(System.in);
+    int size = scanner.nextInt();
+    int[][] matrix = new int[size][size];
+    int diagonalProizv = 1;
+    int summa = 0;
+    int difference = 0;
+    public void matrix(int[][] matrix){
+        this.matrix = matrix;
+    }
+    public void printMatrix() {
+        System.out.println("Введите размер квадратичной матрицы ");
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                matrix[i][j] = random.nextInt(21)-10;
-                if ((size - j) == 1){
+                matrix[i][j] = random.nextInt(10) - 10;
+                if ((size - j) == 1) {
                     System.out.println(matrix[i][j] + " ");
-                }
-                else{
-                    System.out.print(matrix[i][j] + " ");
-                }
+                } else System.out.print(matrix[i][j] + " ");
             }
-
         }
-    static void calculating(String[] args){
-        
-        int diagonalProizv = 1;
-        int summa = 0;
-        int raznost = 0;
+    }
+    public void diagonalProizv() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (i == j) {
                     diagonalProizv *= matrix[i][j];
                 }
+            }
+        }
+    }
+    public void summa() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 if (i < j) {
                     summa += matrix[i][j];
                 }
+            }
+        }
+    }
+    public void difference()
+    {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 if (i > j) {
-                    raznost -= matrix[i][j];
+                    difference -= matrix[i][j];
                 }
             }
         }
-        System.out.println("Произведение элементов по диагонали: " + diagonalProizv);
-        System.out.println("Сумма элементов в правом верхнем углу: " + summa);
-        System.out.println("Разность элементов в левом нижнем углу: " + raznost);
     }
-    }
+
 }
