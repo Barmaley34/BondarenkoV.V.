@@ -1,42 +1,41 @@
-package ru.vsuet.task1;
-
+import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
-public class Matrix{
-    int diagonalProizv = 1;
-    int summa = 0;
-    int difference = 0;
-    public void creatMatrix(){
-        Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите размер квадратичной матрицы ");
-        int size = scanner.nextInt();
-        int[][] matrix = new int[size][size];
 
-    public void matrix(int[][] matrix){
-        this.matrix = matrix;
-    }
-    public void printMatrix() {
-        System.out.println("Введите размер квадратичной матрицы ");
+public class Matrixf {
+    int size;
+    int diagonal = 1;
+    int summa = 0;
+    int dif = 0;
+    int matrix[][];
+
+    private void randomFilling() {
+
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                matrix[i][j] = random.nextInt(10) - 10;
-                if ((size - j) == 1) {
-                    System.out.println(matrix[i][j] + " ");
-                } else System.out.print(matrix[i][j] + " ");
+                Random random = new Random();   
+                matrix[i][j] = random.nextInt(1, 10);
             }
         }
     }
+
+    public Matrixf(int size){
+        this.size = size;
+        matrix = new int[size][size];
+        randomFilling();
+    }
+
     public int diagonalProizv() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (i == j) {
-                    diagonalProizv *= matrix[i][j];
+                    diagonal *= matrix[i][j];
                 }
             }
         }
+        return diagonal;
     }
-    public int summa() {
+
+    public int summa () {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (i < j) {
@@ -44,16 +43,22 @@ public class Matrix{
                 }
             }
         }
+        return summa;
     }
+
     public int difference()
     {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (i > j) {
-                    difference -= matrix[i][j];
+                    dif -= matrix[i][j];
                 }
             }
         }
+        return dif;
     }
 
+    public String toString () {
+        return " "+Arrays.deepToString(matrix).replace("]", "]\n").replace("[", "").replace("]", "").replace(",","");
+    }
 }
