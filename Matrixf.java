@@ -59,6 +59,12 @@ public class Matrixf {
     }
 
     public String toString () {
-        return " "+Arrays.deepToString(matrix).replace("]", "]\n").replace("[", "").replace("]", "").replace(",","");
+        return " " + 
+            
+            
+            
+            
+            
+            Arrays.deepToString(matrix).replace("]", "]\n").replace("[", "").replace("]", "").replace(",","");
     }
 }
